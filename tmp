@@ -1,0 +1,12 @@
+            #pragma omp single
+        {
+            std::cout << "Threads: " << omp_get_num_threads() << " style: " << schedule_style << " mode: " << mode << std::endl;
+        }
+
+    // f1.open('1.txt');
+    // f2.open('2.txt');
+    // f3.open('3.txt');
+    // f4.open('4.txt');
+    // f5.open('5.txt');
+
+    // ofstream files[] = {f1,f2,f3,f4,f5};
