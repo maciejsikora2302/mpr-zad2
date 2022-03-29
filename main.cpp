@@ -65,15 +65,15 @@ void do_work(int threads, int schedule_style, int mode) {
     double time = omp_get_wtime() - t0;
     std::ofstream f;
     if(schedule_style == STATIC && mode == DEFAULT){
-        f.open("f1.txt");
+        f.open("f1.txt", std::ios_base::app);
     }else if(schedule_style == STATIC && mode == MODIFIED){
-        f.open("f2.txt");
+        f.open("f2.txt", std::ios_base::app);
     }else if(schedule_style == DYNAMIC && mode == DEFAULT){
-        f.open("f3.txt");
+        f.open("f3.txt", std::ios_base::app);
     }else if(schedule_style == DYNAMIC && mode == MODIFIED){
-        f.open("f4.txt");
+        f.open("f4.txt", std::ios_base::app);
     }else if(schedule_style == GUIDED && mode == DEFAULT){
-        f.open("f5.txt");
+        f.open("f5.txt", std::ios_base::app);
     }
 
     f << "," << time;
@@ -113,10 +113,16 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    f1 << "\n";
-    f2 << "\n";
-    f3 << "\n";
-    f4 << "\n";
-    f5 << "\n";
+    std::ofstream f1_2("f1.txt", std::ios_base::app);
+    std::ofstream f2_2("f2.txt", std::ios_base::app);
+    std::ofstream f3_2("f3.txt", std::ios_base::app);
+    std::ofstream f4_2("f4.txt", std::ios_base::app);
+    std::ofstream f5_2("f5.txt", std::ios_base::app);
+
+    f1_2 << "\n";
+    f2_2 << "\n";
+    f3_2 << "\n";
+    f4_2 << "\n";
+    f5_2 << "\n";
     return 0;
 }
